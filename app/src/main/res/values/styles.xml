@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="customTextView">
+        <item name="android:layout_marginLeft">@dimen/margin_default</item>
+        <item name="android:layout_marginRight">@dimen/margin_default</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="customTextViewConstraintLayout" parent="customTextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="customTextViewLayout" parent="customTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_default</item>
+    </style>
+
 </resources>

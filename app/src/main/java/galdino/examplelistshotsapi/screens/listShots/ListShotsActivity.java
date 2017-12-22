@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import galdino.examplelistshotsapi.R;
 
-public class ListShotsActivity extends AppCompatActivity {
-
+public class ListShotsActivity extends AppCompatActivity
+{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

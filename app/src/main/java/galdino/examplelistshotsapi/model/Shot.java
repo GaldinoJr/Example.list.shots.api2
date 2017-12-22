@@ -24,6 +24,9 @@ public class Shot
     @SerializedName("views_count")
     @Expose
     private Integer viewsCount;
+    @SerializedName("comments_count")
+    @Expose
+    private Integer commentsCount;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -34,23 +37,19 @@ public class Shot
     public String getTitle() {
         return title;
     }
-
     public String getDescription() {
         return description;
     }
-
     public Images getImages() {
         return images;
     }
-
-
-
     public Integer getViewsCount() {
         return viewsCount;
     }
-
-
     public String getCreatedAt() {
         return createdAt;
+    }
+    public Integer getCommentsCount() {
+        return commentsCount;
     }
 }

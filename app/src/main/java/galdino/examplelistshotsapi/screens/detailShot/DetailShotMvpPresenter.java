@@ -5,4 +5,5 @@ package galdino.examplelistshotsapi.screens.detailShot;
  */
 
 public interface DetailShotMvpPresenter {
+    void loadShot(String mIdShot);
 }

@@ -1,16 +1,57 @@
-<layout>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="galdino.examplelistshotsapi.screens.detailShot.DetailShotFragment">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            tools:context="galdino.examplelistshotsapi.screens.detailShot.DetailShotFragment"
+            android:orientation="vertical">
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/tv_title"
+                android:textAlignment="center"
+                style="@style/customTextViewLayout"
+                tools:text="titulo"
+                />
 
+            <ImageView
+                android:id="@+id/iv_shot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/customTextViewLayout"
+                tools:text="description"
+                />
+
+            <TextView
+                android:id="@+id/tv_views_count"
+                style="@style/customTextViewLayout"
+                tools:text="views count"
+                />
+
+            <TextView
+                android:id="@+id/tv_coments_count"
+                style="@style/customTextViewLayout"
+                tools:text="coments count"
+                />
+
+            <TextView
+                android:id="@+id/tv_creat_at"
+                style="@style/customTextViewLayout"
+                tools:text="creat at"
+                />
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/pg_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 </layout>

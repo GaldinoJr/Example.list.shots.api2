@@ -5,4 +5,5 @@ package galdino.examplelistshotsapi.screens.listShots;
  */
 
 public interface ListShotsMvpPresenter {
+    void loadShots();
 }

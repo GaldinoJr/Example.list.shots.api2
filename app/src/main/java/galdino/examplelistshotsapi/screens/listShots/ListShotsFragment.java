@@ -1,26 +1,34 @@
 package galdino.examplelistshotsapi.screens.listShots;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import galdino.examplelistshotsapi.MyAplication;
 import galdino.examplelistshotsapi.R;
+import galdino.examplelistshotsapi.databinding.AdapterListShotBinding;
 import galdino.examplelistshotsapi.databinding.FragmentListShotsBinding;
+import galdino.examplelistshotsapi.model.Shot;
 import galdino.examplelistshotsapi.screens.BaseFragment;
+import galdino.examplelistshotsapi.screens.detailShot.DetailShotActivity;
 
-public class ListShotsFragment extends BaseFragment {
+public class ListShotsFragment extends BaseFragment implements ListShotsMvpView, ListShotsAdapter.Listener {
     private FragmentListShotsBinding mBinding;
     private ListShotsMvpPresenter mPresenter;
 
-    public static ListShotsFragment newInstance(String param1, String param2) {
+    public static ListShotsFragment newInstance() {
         ListShotsFragment fragment = new ListShotsFragment();
         return fragment;
     }
@@ -38,14 +46,50 @@ public class ListShotsFragment extends BaseFragment {
         return mBinding.getRoot();
     }
 
-    private void loadControls() {
+    private void loadControls()
+    {
         MyAplication application = (MyAplication) getContext().getApplicationContext();
         application.getDiComponent().inject(this);
+        //
+        mPresenter.loadShots();
     }
 
     @Inject
     public void setPresenter(ListShotsMvpPresenter presenter)
     {
         mPresenter = presenter;
+    }
+
+    @Override
+    public void onGettingShots(boolean isGetting)
+    {
+        int visibility = View.GONE;
+        if(isGetting)
+        {
+            visibility = View.VISIBLE;
+        }
+        mBinding.pgLoading.setVisibility(visibility);
+    }
+
+    @Override
+    public void showShots(List<Shot> shots)
+    {
+        ListShotsAdapter adapter = new ListShotsAdapter(this,shots);
+        mBinding.rvShots.setLayoutManager(new LinearLayoutManager(getContext()));
+        mBinding.rvShots.setAdapter(adapter);
+    }
+
+    @Override
+    public void onErrorGettingShots()
+    {
+        showMessage(R.string.error_on_getting_shots);
+    }
+
+    @Override
+    public void onItemClicked(Shot shot)
+    {
+        Intent intent = new Intent(getContext(),DetailShotActivity.class);
+        intent.putExtra(DetailShotActivity.EXTRA_ID_SHOT, shot.getId());
+        startActivity(intent);
     }
 }
