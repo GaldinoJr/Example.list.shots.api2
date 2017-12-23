@@ -14,7 +14,8 @@ import retrofit2.http.Query;
 public class DribbbleDbApiMocked implements DribbbleApi {
 
     @Override
-    public Observable<List<Shot>> getShots(@Query(PATH_ACCESS_TOKEN) String access_token) {
+    public Observable<List<Shot>> getShots(@Query(PATH_ACCESS_TOKEN) String access_token,
+                                           @Query(PATH_PER_PAGE) int per_page) {
         return null;
     }
 

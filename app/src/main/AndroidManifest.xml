@@ -12,14 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".MyAplication">
-        <activity android:name=".screens.listShots.ListShotsActivity">
+        <activity android:name=".screens.listShots.ListShotsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:label="@string/label_activity_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screens.detailShot.DetailShotActivity"></activity>
+        <activity
+            android:name=".screens.detailShot.DetailShotActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:label="@string/label_activity_detalhe"
+            />
     </application>
 
 </manifest>

@@ -44,7 +44,7 @@ public class ApiHelper implements ApiMvpHelper
 
     @Override
     public Observable<List<Shot>> getShots() {
-        return mDbApi.getShots(mToken).flatMap(new Function<List<Shot>, Observable<List<Shot>>>() {
+        return mDbApi.getShots(mToken,30).flatMap(new Function<List<Shot>, Observable<List<Shot>>>() {
             @Override
             public Observable<List<Shot>> apply(@NonNull List<Shot> shots) throws Exception {
                 return Observable.just(shots);

@@ -11,7 +11,7 @@ public class Images
 {
     @SerializedName("hidpi")
     @Expose
-    private Object hidpi;
+    private String hidpi;
     @SerializedName("normal")
     @Expose
     private String normal;
@@ -19,7 +19,7 @@ public class Images
     @Expose
     private String teaser;
 
-    public Object getHidpi() {
+    public String getHidpi() {
         return hidpi;
     }
 

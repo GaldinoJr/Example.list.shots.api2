@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="lengh_image">50dp</dimen>
+    <dimen name="lengh_image">70dp</dimen>
     <dimen name="margin_default">10dp</dimen>
-    <dimen name="height_adapter_default">80dp</dimen>
+    <dimen name="height_adapter_default">120dp</dimen>
+    <dimen name="margin_default3x">22dp</dimen>
+    <dimen name="lengh_logo">30dp</dimen>
+    <dimen name="lengh_image_list">15dp</dimen>
+    <dimen name="text_size2x">20sp</dimen>
 </resources>

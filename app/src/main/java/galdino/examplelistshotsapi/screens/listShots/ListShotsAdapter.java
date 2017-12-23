@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import galdino.examplelistshotsapi.R;
@@ -50,7 +52,10 @@ public class ListShotsAdapter extends RecyclerView.Adapter<ListShotsAdapter.View
             binding.tvTitle.setText(shot.getTitle());
             binding.tvCreatAt.setText(getDateFormated(shot.getCreatedAt()));
             binding.tvViewsCount.setText(String.valueOf(shot.getViewsCount()));
-            // TODO não esqucer de colocar a imagem na tela
+            Picasso.with(binding.ivShot.getContext())
+                    .load(shot.getImages().getNormal())
+//                    .centerCrop()
+                    .into(binding.ivShot);
         }
     }
 

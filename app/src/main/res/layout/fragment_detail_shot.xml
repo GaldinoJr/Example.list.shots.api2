@@ -1,57 +1,128 @@
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="galdino.examplelistshotsapi.screens.detailShot.DetailShotFragment"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:textAlignment="center"
-                style="@style/customTextViewLayout"
-                tools:text="titulo"
-                />
-
-            <ImageView
-                android:id="@+id/iv_shot"
+            android:layout_height="wrap_content">
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/margin_default3x"
+                >
 
-            <TextView
-                android:id="@+id/tv_description"
-                style="@style/customTextViewLayout"
-                tools:text="description"
-                />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:textAlignment="center"
+                    style="@style/customTextViewConstraintLayout"
+                    tools:text="titulo"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="@dimen/text_size2x"
+                    android:textStyle="bold"
+                    />
 
-            <TextView
-                android:id="@+id/tv_views_count"
-                style="@style/customTextViewLayout"
-                tools:text="views count"
-                />
+                <ImageView
+                    android:id="@+id/iv_shot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default3x"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                    android:contentDescription="@string/ct_image"
+                    />
 
-            <TextView
-                android:id="@+id/tv_coments_count"
-                style="@style/customTextViewLayout"
-                tools:text="coments count"
-                />
+                <TextView
+                    android:id="@+id/tv_description"
+                    style="@style/customTextViewConstraintLayout"
+                    tools:text="description"
+                    android:maxLines="10"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_shot"
+                    android:layout_marginTop="@dimen/margin_default"
+                    />
 
-            <TextView
-                android:id="@+id/tv_creat_at"
-                style="@style/customTextViewLayout"
-                tools:text="creat at"
-                />
-        </LinearLayout>
-        <ProgressBar
-            android:id="@+id/pg_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
+                <ImageView
+                    android:id="@+id/iv_icon_views"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_description"
+                    android:src="@drawable/ic_vector_views"
+                    android:layout_marginLeft="@dimen/margin_default"
+                    android:layout_marginStart="@dimen/margin_default"
+                    android:contentDescription="@string/ct_icon_views"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:id="@+id/tv_views_count"
+                    style="@style/customTextViewConstraintLayout"
+                    tools:text="views count"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_icon_views"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_icon_views"
+                    app:layout_constraintBottom_toTopOf="@+id/iv_icon_views"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_icon_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_icon_views"
+                    android:src="@drawable/ic_vector_comments"
+                    android:layout_marginLeft="@dimen/margin_default"
+                    android:layout_marginStart="@dimen/margin_default"
+                    android:contentDescription="@string/ct_icon_comments"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:id="@+id/tv_coments_count"
+                    style="@style/customTextViewConstraintLayout"
+                    tools:text="coments count"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_icon_comments"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_icon_comments"
+                    app:layout_constraintBottom_toTopOf="@+id/iv_icon_comments"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_icon_create_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_icon_comments"
+                    android:src="@drawable/ic_vector_calendar"
+                    android:layout_marginLeft="@dimen/margin_default"
+                    android:layout_marginStart="@dimen/margin_default"
+                    android:contentDescription="@string/ct_icon_create_at"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:visibility="invisible"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_creat_at"
+                    style="@style/customTextViewConstraintLayout"
+                    tools:text="creat at"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_icon_create_at"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_icon_create_at"
+                    app:layout_constraintBottom_toTopOf="@+id/iv_icon_create_at"
+                    />
+                <ProgressBar
+                    android:id="@+id/pg_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
     </RelativeLayout>
 </layout>

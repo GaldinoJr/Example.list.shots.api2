@@ -3,11 +3,15 @@ package galdino.examplelistshotsapi.screens.detailShot;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
@@ -17,6 +21,7 @@ import galdino.examplelistshotsapi.databinding.FragmentDetailShotBinding;
 import galdino.examplelistshotsapi.model.Shot;
 import galdino.examplelistshotsapi.screens.BaseFragment;
 import galdino.examplelistshotsapi.screens.listShots.ListShotsMvpPresenter;
+import galdino.examplelistshotsapi.util.MethodsUtil;
 
 import static galdino.examplelistshotsapi.util.MethodsUtil.getDateFormated;
 
@@ -84,8 +89,11 @@ public class DetailShotFragment extends BaseFragment implements DetailShotMvpVie
     @Override
     public void showShot(Shot shot)
     {
+        mBinding.ivIconComments.setVisibility(View.VISIBLE);
+        mBinding.ivIconCreateAt.setVisibility(View.VISIBLE);
+        mBinding.ivIconViews.setVisibility(View.VISIBLE);
         mBinding.tvTitle.setText(shot.getTitle());
-        mBinding.tvDescription.setText(shot.getDescription());
+        MethodsUtil.setDescriptionHtml(mBinding.tvDescription, shot.getDescription());
         if(shot.getViewsCount() != null) {
             mBinding.tvViewsCount.setText(String.valueOf(shot.getViewsCount()));
         }
@@ -93,7 +101,9 @@ public class DetailShotFragment extends BaseFragment implements DetailShotMvpVie
             mBinding.tvComentsCount.setText(String.valueOf(shot.getCommentsCount()));
         }
         mBinding.tvCreatAt.setText(getDateFormated(shot.getCreatedAt()));
-        // TODO COLOCAR A IMAGEM COM CENTER CROP
+        Picasso.with(getContext())
+                .load(shot.getImages().getHidpi())
+                .into(mBinding.ivShot);
     }
 
     @Override

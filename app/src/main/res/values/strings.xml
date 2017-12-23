@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">Example.list.shots.api</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">ListShotsDribble</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ct_image_calendar">Icone para data</string>
     <string name="error_on_getting_shots">Erro ao carregar os \"shots\"</string>
     <string name="error_have_not_id_shot">Não há informação para buscar o \"shot\"</string>
     <string name="error_on_getting_shot_detail">Erro ao obter dados do \"shot\"</string>
     <string name="token" >17327f456c3278bf753faa7d5ae250cebd7c0351fb223c30a41e8677389428e0</string>
+    <string name="label_activity_list">Lista</string>
+    <string name="label_activity_detalhe">Detalhe</string>
+    <string name="ct_logo">Logo dribbble</string>
+    <string name="ct_icon_views">Icone de quantidade de visualizações</string>
+    <string name="ct_icon_comments">Icone de quantidade de comentários</string>
+    <string name="ct_icon_create_at">Icone para representar um calendário de quando foi criado</string>
+    <string name="ct_image">Foto</string>
 </resources>

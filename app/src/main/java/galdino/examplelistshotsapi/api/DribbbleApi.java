@@ -21,11 +21,13 @@ public interface DribbbleApi
     String GET_SHOT_DETAIL = GET_SHOTS + "/{" + PAR_SHOT_ID + "}";
     // parametros
     String PATH_ACCESS_TOKEN = "access_token";
+    String PATH_PER_PAGE = "per_page";
 
     //
     @GET(GET_SHOTS)
     Observable<List<Shot>> getShots(
-            @Query(PATH_ACCESS_TOKEN) String access_token);
+            @Query(PATH_ACCESS_TOKEN) String access_token,
+            @Query(PATH_PER_PAGE) int per_page);
 
     @GET(GET_SHOT_DETAIL)
     Observable<Shot> getShotDetail(
