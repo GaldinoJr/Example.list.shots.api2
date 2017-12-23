@@ -3,8 +3,8 @@ package galdino.examplelistshotsapi.coreMVP.modules;
 
 import dagger.Module;
 import dagger.Provides;
-import galdino.examplelistshotsapi.coreMVP.AppSchedulerProvider;
-import galdino.examplelistshotsapi.coreMVP.SchedulerProvider;
+import galdino.examplelistshotsapi.coreMVP.scheduler.AppSchedulerProvider;
+import galdino.examplelistshotsapi.coreMVP.scheduler.SchedulerProvider;
 
 /**
  * Created by galdino on 05/11/17.

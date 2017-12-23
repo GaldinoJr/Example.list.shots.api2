@@ -1,7 +1,7 @@
 package galdino.examplelistshotsapi.screens.detailShot;
 
 import galdino.examplelistshotsapi.coreMVP.BasePresenter;
-import galdino.examplelistshotsapi.coreMVP.SchedulerProvider;
+import galdino.examplelistshotsapi.coreMVP.scheduler.SchedulerProvider;
 import galdino.examplelistshotsapi.model.Shot;
 import io.reactivex.SingleObserver;
 import io.reactivex.annotations.NonNull;

@@ -2,7 +2,7 @@ package galdino.examplelistshotsapi.coreMVP.modules;
 
 import dagger.Module;
 import dagger.Provides;
-import galdino.examplelistshotsapi.coreMVP.SchedulerProvider;
+import galdino.examplelistshotsapi.coreMVP.scheduler.SchedulerProvider;
 import galdino.examplelistshotsapi.screens.detailShot.DetailShotMvpDataManager;
 import galdino.examplelistshotsapi.screens.detailShot.DetailShotMvpPresenter;
 import galdino.examplelistshotsapi.screens.detailShot.DetailShotPresenter;

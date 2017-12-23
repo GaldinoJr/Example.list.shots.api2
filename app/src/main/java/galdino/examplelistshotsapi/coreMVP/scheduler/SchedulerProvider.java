@@ -1,4 +1,4 @@
-package galdino.examplelistshotsapi.coreMVP;
+package galdino.examplelistshotsapi.coreMVP.scheduler;
 
 import io.reactivex.Scheduler;
 

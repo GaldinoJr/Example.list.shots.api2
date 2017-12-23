@@ -1,5 +1,7 @@
 package galdino.examplelistshotsapi.coreMVP;
 
+import galdino.examplelistshotsapi.coreMVP.scheduler.SchedulerProvider;
+
 /**
  * Created by galdino on 05/11/17.
  */
