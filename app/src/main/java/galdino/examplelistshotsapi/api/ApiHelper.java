@@ -7,7 +7,6 @@ import java.util.List;
 import galdino.examplelistshotsapi.R;
 import galdino.examplelistshotsapi.model.Shot;
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import retrofit2.Retrofit;
@@ -20,15 +19,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiHelper implements ApiMvpHelper
 {
-    private static final String BASE_URL = "api.dribbble.com/v1/";
+    private static final String BASE_URL = "http://api.dribbble.com/v1/";
     private Context mContext;
-    private DribbbleDbApi mDbApi;
+    private DribbbleApi mDbApi;
     private String mToken;
 
     public ApiHelper(Context context) {
         this.mContext = context;
         Retrofit retrofit = getRetrofit();
-        mDbApi = retrofit.create(DribbbleDbApi.class);
+        mDbApi = retrofit.create(DribbbleApi.class);
         if(mContext != null)
         {
             mToken = mContext.getString(R.string.token);
@@ -54,9 +53,9 @@ public class ApiHelper implements ApiMvpHelper
     }
 
     @Override
-    public Observable<Shot> getShotDetail(String mIdShot)
+    public Observable<Shot> getShotDetail(Integer mIdShot)
     {
-        return mDbApi.getShotDetail(mIdShot,mToken).flatMap(new Function<Shot, Observable<Shot>>() {
+        return mDbApi.getShotDetail(String.valueOf(mIdShot),mToken).flatMap(new Function<Shot, Observable<Shot>>() {
             @Override
             public Observable<Shot> apply(@NonNull Shot shot) throws Exception {
                 return Observable.just(shot);

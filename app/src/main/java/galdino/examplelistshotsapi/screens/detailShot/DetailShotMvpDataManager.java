@@ -8,5 +8,5 @@ import io.reactivex.Single;
  */
 
 public interface DetailShotMvpDataManager  {
-    Single<Shot> loadShot(String mIdShot);
+    Single<Shot> loadShot(Integer mIdShot);
 }

@@ -7,7 +7,6 @@ import dagger.Provides;
 import galdino.examplelistshotsapi.api.ApiHelper;
 import galdino.examplelistshotsapi.api.ApiMvpHelper;
 import galdino.examplelistshotsapi.api.DribbbleApi;
-import galdino.examplelistshotsapi.api.DribbbleDbApi;
 import galdino.examplelistshotsapi.api.DribbbleDbApiMocked;
 
 /**

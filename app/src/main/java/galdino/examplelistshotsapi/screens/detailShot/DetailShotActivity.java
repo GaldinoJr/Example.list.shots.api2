@@ -23,8 +23,7 @@ public class DetailShotActivity extends AppCompatActivity {
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        String idExtra = getIntent().getStringExtra(EXTRA_ID_SHOT);
+        Integer idExtra = getIntent().getIntExtra(EXTRA_ID_SHOT,-1);
         DetailShotFragment detailShotFragment = DetailShotFragment.newInstance(idExtra);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
 

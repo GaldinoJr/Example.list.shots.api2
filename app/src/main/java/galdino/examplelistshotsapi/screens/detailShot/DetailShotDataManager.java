@@ -16,7 +16,7 @@ public class DetailShotDataManager implements DetailShotMvpDataManager{
     }
 
     @Override
-    public Single<Shot> loadShot(String mIdShot) {
+    public Single<Shot> loadShot(Integer mIdShot) {
         return mApiMvpHelper.getShotDetail(mIdShot).singleOrError();
     }
 }

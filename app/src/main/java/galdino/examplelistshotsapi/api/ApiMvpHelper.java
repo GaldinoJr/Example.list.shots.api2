@@ -13,5 +13,5 @@ import io.reactivex.Single;
 public interface ApiMvpHelper
 {
     Observable <List<Shot>> getShots();
-    Observable <Shot> getShotDetail(String mIdShot);
+    Observable <Shot> getShotDetail(Integer mIdShot);
 }

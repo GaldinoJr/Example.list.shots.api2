@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_adapter_default"
@@ -39,9 +38,9 @@
 
         <TextView
             android:id="@+id/tv_views_count"
-            app:layout_constraintTop_toTopOf="@+id/iv_shot"
+            app:layout_constraintTop_toTopOf="@+id/iv_visualization"
             app:layout_constraintBottom_toBottomOf="@+id/iv_visualization"
-            app:layout_constraintLeft_toRightOf="@+id/iv_calendar"
+            app:layout_constraintLeft_toRightOf="@+id/iv_visualization"
             app:layout_constraintRight_toRightOf="parent"
             style="@style/customTextViewConstraintLayout"
             />

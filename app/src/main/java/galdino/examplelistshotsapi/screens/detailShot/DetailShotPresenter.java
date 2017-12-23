@@ -49,7 +49,7 @@ public class DetailShotPresenter extends BasePresenter<DetailShotMvpView> implem
     }
 
     @Override
-    public void loadShot(String mIdShot)
+    public void loadShot(Integer mIdShot)
     {
         SchedulerProvider schedulerProvider = getSchedulerProvider();
         mDataManager.loadShot(mIdShot)

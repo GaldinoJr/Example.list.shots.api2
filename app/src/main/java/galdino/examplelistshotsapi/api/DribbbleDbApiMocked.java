@@ -1,5 +1,7 @@
 package galdino.examplelistshotsapi.api;
 
+import java.util.List;
+
 import galdino.examplelistshotsapi.model.Shot;
 import io.reactivex.Observable;
 import retrofit2.http.Path;
@@ -10,13 +12,14 @@ import retrofit2.http.Query;
  */
 
 public class DribbbleDbApiMocked implements DribbbleApi {
+
     @Override
-    public Observable<Shot> getShots(@Path(PATH_ACCESS_TOKEN) String access_token) {
+    public Observable<List<Shot>> getShots(@Query(PATH_ACCESS_TOKEN) String access_token) {
         return null;
     }
 
     @Override
-    public Observable<Shot> getShotDetail(@Path(PAR_SHOT_ID) int shotId, @Query(PATH_ACCESS_TOKEN) String access_token) {
+    public Observable<Shot> getShotDetail(@Path(PAR_SHOT_ID) String shotId, @Query(PATH_ACCESS_TOKEN) String access_token) {
         return null;
     }
 }

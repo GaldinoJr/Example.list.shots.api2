@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,12 +53,22 @@ public class ListShotsFragment extends BaseFragment implements ListShotsMvpView,
         application.getDiComponent().inject(this);
         //
         mPresenter.loadShots();
+        mBinding.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if(mPresenter != null)
+                {
+                    mPresenter.loadShots();
+                }
+            }
+        });
     }
 
     @Inject
     public void setPresenter(ListShotsMvpPresenter presenter)
     {
         mPresenter = presenter;
+        mPresenter.attach(this);
     }
 
     @Override
@@ -67,6 +78,10 @@ public class ListShotsFragment extends BaseFragment implements ListShotsMvpView,
         if(isGetting)
         {
             visibility = View.VISIBLE;
+        }
+        else
+        {
+            mBinding.swipeRefreshLayout.setRefreshing(false);
         }
         mBinding.pgLoading.setVisibility(visibility);
     }

@@ -18,7 +18,7 @@ public interface DribbbleApi
     String PAR_SHOT_ID = "shotId";
     // Métodos GET
     String GET_SHOTS = "shots";
-    String GET_SHOT_DETAIL = GET_SHOTS + "{" + PAR_SHOT_ID + "}";
+    String GET_SHOT_DETAIL = GET_SHOTS + "/{" + PAR_SHOT_ID + "}";
     // parametros
     String PATH_ACCESS_TOKEN = "access_token";
 

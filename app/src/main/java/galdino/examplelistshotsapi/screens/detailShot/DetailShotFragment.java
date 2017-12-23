@@ -26,13 +26,13 @@ public class DetailShotFragment extends BaseFragment implements DetailShotMvpVie
 
     private DetailShotMvpPresenter mPresenter;
     private FragmentDetailShotBinding mBinding;
-    private String mIdShot;
+    private Integer mIdShot;
 
-    public static DetailShotFragment newInstance(String idShot)
+    public static DetailShotFragment newInstance(Integer idShot)
     {
         DetailShotFragment fragment = new DetailShotFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_ID_SHOT, idShot);
+        args.putInt(ARG_ID_SHOT, idShot);
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,14 +40,14 @@ public class DetailShotFragment extends BaseFragment implements DetailShotMvpVie
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mIdShot = getArguments().getString(ARG_ID_SHOT);
+        mIdShot = getArguments().getInt(ARG_ID_SHOT);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        if(mIdShot == null)
+        if(mIdShot == null || mIdShot == -1)
         {
             showMessage(R.string.error_have_not_id_shot);
             getActivity().finish();
@@ -67,6 +67,7 @@ public class DetailShotFragment extends BaseFragment implements DetailShotMvpVie
     public void setPresenter(DetailShotMvpPresenter presenter)
     {
         mPresenter = presenter;
+        mPresenter.attach(this);
     }
 
     @Override
@@ -85,8 +86,12 @@ public class DetailShotFragment extends BaseFragment implements DetailShotMvpVie
     {
         mBinding.tvTitle.setText(shot.getTitle());
         mBinding.tvDescription.setText(shot.getDescription());
-        mBinding.tvViewsCount.setText(shot.getViewsCount());
-        mBinding.tvComentsCount.setText(shot.getCommentsCount());
+        if(shot.getViewsCount() != null) {
+            mBinding.tvViewsCount.setText(String.valueOf(shot.getViewsCount()));
+        }
+        if(shot.getCommentsCount() != null) {
+            mBinding.tvComentsCount.setText(String.valueOf(shot.getCommentsCount()));
+        }
         mBinding.tvCreatAt.setText(getDateFormated(shot.getCreatedAt()));
         // TODO COLOCAR A IMAGEM COM CENTER CROP
     }
