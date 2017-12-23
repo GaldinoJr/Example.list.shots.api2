@@ -5,7 +5,7 @@
     <string name="error_on_getting_shots">Erro ao carregar os \"shots\"</string>
     <string name="error_have_not_id_shot">Não há informação para buscar o \"shot\"</string>
     <string name="error_on_getting_shot_detail">Erro ao obter dados do \"shot\"</string>
-    <string name="token" >17327f456c3278bf753faa7d5ae250cebd7c0351fb223c30a41e8677389428e0</string>
+
     <string name="label_activity_list">Lista</string>
     <string name="label_activity_detalhe">Detalhe</string>
     <string name="ct_logo">Logo dribbble</string>
